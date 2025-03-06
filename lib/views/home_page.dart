@@ -1,7 +1,7 @@
 /// @Author: Raziqrr rzqrdzn03@gmail.com
 /// @Date: 2024-09-12 18:38:28
 /// @LastEditors: Raziqrr rzqrdzn03@gmail.com
-/// @LastEditTime: 2024-09-12 21:36:40
+/// @LastEditTime: 2025-03-06 15:31:14
 /// @FilePath: lib/views/home_page.dart
 /// @Description: 这是默认设置,可以在设置》工具》File Description中进行配置
 
@@ -24,17 +24,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //List to store to do items, initiliaze as empty list and load when launching app
   List<ToDoItem> todoList = [];
 
+  //function to load list from device storage
   void LoadList() async {
+    //starting shared preference instance
     final _prefs = await SharedPreferences.getInstance();
+
+    //getting the data stored by accessing named key todoList
     final jsonList = await _prefs.getString("todoList");
+
+    //check if data exists/not null
     if (jsonList != null) {
+      //converting the json string into list of map
       final mappedList = List<Map<String, dynamic>>.from(jsonDecode(jsonList));
+
+      //converting the all items in the list into ToDoItem object instances by mapping each items into ToDoItem and converting them back into a list
       final tempList =
           mappedList.map((item) => ToDoItem.fromMap(item)).toList();
       todoList = tempList;
-      setState(() {});
+      setState(() {}); //set state for all
       print(todoList);
       print(mappedList);
       print(tempList);
@@ -42,6 +52,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void SaveData() async {
+    //start shared preferences instance
     final _prefs = await SharedPreferences.getInstance();
     final mappedList = todoList.map((item) => item.toMap()).toList();
     final jsonList = jsonEncode(mappedList);

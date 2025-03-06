@@ -1,7 +1,7 @@
 /// @Author: Raziqrr rzqrdzn03@gmail.com
 /// @Date: 2024-09-12 18:38:41
 /// @LastEditors: Raziqrr rzqrdzn03@gmail.com
-/// @LastEditTime: 2024-09-12 20:44:36
+/// @LastEditTime: 2025-03-06 15:38:17
 /// @FilePath: lib/models/todo_item.dart
 /// @Description: 这是默认设置,可以在设置》工具》File Description中进行配置
 
@@ -33,11 +33,11 @@ class ToDoItem {
 
   factory ToDoItem.fromMap(Map<String, dynamic> map) {
     return ToDoItem(
-      title: map['title'] as String,
+      title: map['title'].toString(),
       isCompleted: map['isCompleted'] as bool,
-      date: map['date'] as String,
-      description: map['description'] as String,
-      imagePath: map['imagePath'] as String,
+      date: map['date'].toString(),
+      description: map['description'].toString(),
+      imagePath: map['imagePath'].toString(),
     );
   }
 }

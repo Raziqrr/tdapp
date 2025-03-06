@@ -1,7 +1,7 @@
 /// @Author: Raziqrr rzqrdzn03@gmail.com
 /// @Date: 2024-09-12 19:53:18
 /// @LastEditors: Raziqrr rzqrdzn03@gmail.com
-/// @LastEditTime: 2024-09-12 20:50:49
+/// @LastEditTime: 2024-09-12 22:54:27
 /// @FilePath: lib/views/add_page.dart
 /// @Description: 这是默认设置,可以在设置》工具》File Description中进行配置
 
@@ -87,7 +87,7 @@ class _AddPageState extends State<AddPage> {
                     context: context,
                     builder: (BuildContext context) {
                       return Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
